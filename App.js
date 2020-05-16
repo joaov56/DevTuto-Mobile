@@ -1,19 +1,48 @@
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React, { useState } from "react";
+import { Text, View, StyleSheet, TouchableOpacity, ImageBackground, SafeAreaView } from "react-native";
 
-export default function App() {
+
+import * as Font from 'expo-font';
+
+
+
+
+
+const App = () => {
+
+  async componentDidMount(){
+    await Font.loadAsync({
+      bold: require('./assets/fonts/Poppins-Bold.ttf')
+    })
+  }
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-    </View>
+
+    <ImageBackground source={require('./assets/bg-intro-mobile.png')} style={{ width: '100%', height: '100%', backgroundColor: '#FF6666' }}>
+
+
+      <View>
+        <Text style={{ fontFamily: 'poppins-italic' }}>Learn to code by
+          watching others</Text>
+      </View>
+    </ImageBackground>
+
+
+
+
   );
-}
+};
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+  textoPrinc: {
+    textAlign: 'center',
+    paddingTop: 40,
+    color: "#ffffff",
+    fontSize: 40,
+    fontWeight: 'bold',
+    fontFamily: "poppins-bold"
+
+  }
+})
+
+export default App;
